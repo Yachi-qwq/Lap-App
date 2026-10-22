@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">lapApp</string>
+    <string name="title_main">Elektrotechnik Quiz</string>
+    <string name="btn_read_questions">Fragen lesen</string>
+    <string name="btn_lap_mode">LAP Modus</string>
+    <string name="title_chapters">Kapitel auswählen</string>
+    <string name="chapter_a">Kapitel A</string>
+    <string name="chapter_b">Kapitel B</string>
+    <string name="chapter_c">Kapitel C</string>
+    <string name="chapter_d">Kapitel D</string>
+    <string name="chapter_e">Kapitel E</string>
+    <string name="chapter_f">Kapitel F</string>
+    <string name="close">Schließen</string>
+
+    <!-- Firebase Google Auth -->
+    <string name="default_web_client_id">YOUR_CLIENT_ID_HERE</string>
+</resources>

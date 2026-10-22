@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardChapterStats"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/surface_dark_glass"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
+    app:strokeColor="#1AFFFFFF"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutChapterHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvChapterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_white_pure"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="Kapitel A" />
+
+            <TextView
+                android:id="@+id/tvChapterDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/text_white_secondary"
+                android:textSize="13sp"
+                tools:text="12/20 Fragen (60%)" />
+        </RelativeLayout>
+
+        <!-- Segmented Progress Bar -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#20FFFFFF"
+                android:orientation="horizontal">
+                <View android:id="@+id/viewGreen" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@color/rating_good" />
+                <View android:id="@+id/viewOrange" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@color/rating_medium" />
+                <View android:id="@+id/viewRed" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@color/rating_bad" />
+                <View android:id="@+id/viewUnanswered" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@android:color/transparent" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Expandable Content -->
+        <LinearLayout
+            android:id="@+id/layoutExpandable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/btnDrillUnanswered"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView android:id="@+id/tvCountUnanswered" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@color/text_white_pure" android:textStyle="bold" />
+                <TextView android:id="@+id/tvLabelUnanswered" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Offen" android:textColor="@color/text_white_dim" android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnDrillRed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView android:id="@+id/tvCountRed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@color/rating_bad" android:textStyle="bold" />
+                <TextView android:id="@+id/tvLabelRed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Schlecht" android:textColor="@color/text_white_dim" android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnDrillOrange"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView android:id="@+id/tvCountOrange" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@color/rating_medium" android:textStyle="bold" />
+                <TextView android:id="@+id/tvLabelOrange" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mittel" android:textColor="@color/text_white_dim" android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnDrillGreen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView android:id="@+id/tvCountGreen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@color/rating_good" android:textStyle="bold" />
+                <TextView android:id="@+id/tvLabelGreen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gut" android:textColor="@color/text_white_dim" android:textSize="10sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

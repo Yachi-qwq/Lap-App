@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_deep_dark"
+    tools:context=".LapActivity">
+
+    <!-- Background Decoration -->
+    <View
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="-200dp"
+        android:layout_marginTop="-200dp"
+        android:alpha="0.05"
+        android:background="@drawable/bg_gradient_primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCurrentId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/text_white_pure"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Frage A1" />
+
+    <!-- RecyclerView handles everything including scrolling images now -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLapQuestions"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginVertical="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentId" />
+
+    <!-- Overlay Bottom Control Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomControlBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/surface_dark_glass"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:strokeColor="#20FFFFFF"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShowAnswer"
+                style="@style/Widget.LapApp.Button.Glass"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="4dp"
+                android:text="Antwort anzeigen"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/layoutRatings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBad"
+                    style="@style/Widget.LapApp.Button.Rating"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:text="Schlecht"
+                    android:textColor="@color/rating_bad"
+                    android:textSize="11sp"
+                    app:backgroundTint="#20FF5252" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMedium"
+                    style="@style/Widget.LapApp.Button.Rating"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:text="Mittel"
+                    android:textColor="@color/rating_medium"
+                    android:textSize="11sp"
+                    app:backgroundTint="#20FFD740" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGood"
+                    style="@style/Widget.LapApp.Button.Rating"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:text="Gut"
+                    android:textColor="@color/rating_good"
+                    android:textSize="11sp"
+                    app:backgroundTint="#2069F0AE" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNextQuestion"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Nächste Frage"
+                android:textColor="@color/text_white_pure"
+                android:textStyle="bold"
+                app:icon="@android:drawable/ic_media_next"
+                app:iconGravity="end" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

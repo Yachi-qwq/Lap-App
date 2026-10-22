@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme for Dark Mode -->
+    <style name="Base.Theme.LapApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand colors -->
+        <item name="colorPrimary">@color/grad_purple_start</item>
+        <item name="colorOnPrimary">@color/text_white_pure</item>
+        <item name="colorPrimaryContainer">@color/surface_dark_glass</item>
+        <item name="colorOnPrimaryContainer">@color/text_white_pure</item>
+
+        <item name="colorSecondary">@color/grad_blue_end</item>
+        <item name="colorOnSecondary">@color/text_white_pure</item>
+
+        <!-- Status and Navigation Bar -->
+        <item name="android:statusBarColor">@color/bg_deep_dark</item>
+        <item name="android:navigationBarColor">@color/bg_deep_dark</item>
+
+        <!-- Backgrounds -->
+        <item name="android:windowBackground">@color/bg_deep_dark</item>
+        <item name="colorSurface">@color/bg_deep_dark</item>
+        <item name="colorSurfaceVariant">@color/surface_dark_glass</item>
+
+        <!-- Typography -->
+        <item name="android:textColorPrimary">@color/text_white_pure</item>
+        <item name="android:textColorSecondary">@color/text_white_secondary</item>
+        <item name="colorOnSurface">@color/text_white_pure</item>
+        <item name="colorOnSurfaceVariant">@color/text_white_secondary</item>
+    </style>
+</resources>

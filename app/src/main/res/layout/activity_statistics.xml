@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_deep_dark">
+
+    <!-- Background Decoration -->
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginEnd="-150dp"
+        android:layout_marginTop="-150dp"
+        android:alpha="0.1"
+        android:background="@drawable/bg_gradient_secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Statistik"
+                android:textColor="@color/text_white_pure"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:text="Dein Lernfortschritt im Überblick"
+                android:textColor="@color/text_white_secondary"
+                android:textSize="14sp" />
+
+            <!-- Total Progress Card (Donut-like) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTotalProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/surface_dark_glass"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#1AFFFFFF"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="24dp">
+
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:id="@+id/pbTotalCircular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:progress="75"
+                            app:indicatorColor="@color/grad_purple_start"
+                            app:indicatorSize="100dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:trackColor="#20FFFFFF"
+                            app:trackThickness="10dp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalPercent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="75%"
+                            android:textColor="@color/text_white_pure"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/pbTotalCircular"
+                            app:layout_constraintEnd_toEndOf="@+id/pbTotalCircular"
+                            app:layout_constraintStart_toStartOf="@+id/pbTotalCircular"
+                            app:layout_constraintTop_toTopOf="@+id/pbTotalCircular" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="@+id/pbTotalCircular"
+                            app:layout_constraintEnd_toStartOf="@+id/ivExpandArrow"
+                            app:layout_constraintStart_toEndOf="@+id/pbTotalCircular"
+                            app:layout_constraintTop_toTopOf="@+id/pbTotalCircular">
+
+                            <TextView
+                                android:id="@+id/tvTotalProgress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Gesamtfortschritt"
+                                android:textColor="@color/text_white_pure"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvTotalQuestionsInfo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Du hast 0 von 0 Fragen korrekt beantwortet."
+                                android:textColor="@color/text_white_secondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/ivExpandArrow"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/text_white_dim" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Expandable Details -->
+                    <LinearLayout
+                        android:id="@+id/layoutTotalExpandable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="24dp"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="#1AFFFFFF" />
+
+                        <!-- Row: Good -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+                            <View android:layout_width="12dp" android:layout_height="12dp" android:background="@drawable/shape_circle" android:backgroundTint="@color/rating_good" />
+                            <TextView
+                                android:id="@+id/tvTotalDetailGreen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="Gut: 0 (0%)"
+                                android:textColor="@color/text_white_pure"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <!-- Row: Medium -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+                            <View android:layout_width="12dp" android:layout_height="12dp" android:background="@drawable/shape_circle" android:backgroundTint="@color/rating_medium" />
+                            <TextView
+                                android:id="@+id/tvTotalDetailOrange"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="Mittel: 0 (0%)"
+                                android:textColor="@color/text_white_pure"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <!-- Row: Bad -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+                            <View android:layout_width="12dp" android:layout_height="12dp" android:background="@drawable/shape_circle" android:backgroundTint="@color/rating_bad" />
+                            <TextView
+                                android:id="@+id/tvTotalDetailRed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="Schlecht: 0 (0%)"
+                                android:textColor="@color/text_white_pure"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <!-- Row: Unanswered -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <View android:layout_width="12dp" android:layout_height="12dp" android:background="@drawable/shape_circle" android:backgroundTint="@color/text_white_dim" />
+                            <TextView
+                                android:id="@+id/tvTotalDetailUnanswered"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="Offen: 0 (0%)"
+                                android:textColor="@color/text_white_pure"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Kapitel Details"
+                android:textColor="@color/text_white_pure"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/layoutChapterStats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

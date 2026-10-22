@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Modern Deep Dark Palette -->
+    <color name="bg_deep_dark">#0A0E17</color>
+    <color name="surface_dark_glass">#1E2530</color>
+    <color name="surface_glass_transparent">#2A3240</color>
+
+    <!-- Vibrant Gradients & Accents -->
+    <color name="grad_purple_start">#8A2BE2</color>
+    <color name="grad_blue_end">#00BFFF</color>
+    <color name="grad_pink_start">#FF1493</color>
+    <color name="grad_orange_end">#FF8C00</color>
+
+    <!-- Semantic / Legacy Compatibility Mapping (Behebt Linking-Fehler) -->
+    <color name="background_dark">#0A0E17</color>
+    <color name="surface_dark">#1E2530</color>
+    <color name="primary_blue">#00BFFF</color>
+    <color name="accent_gold">#FFD700</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B5C1</color>
+
+    <!-- Rating / Feedback Colors -->
+    <color name="rating_bad">#FF5252</color>
+    <color name="rating_medium">#FFD740</color>
+    <color name="rating_good">#69F0AE</color>
+
+    <!-- Modern Typography -->
+    <color name="text_white_pure">#FFFFFF</color>
+    <color name="text_white_secondary">#B0B5C1</color>
+    <color name="text_white_dim">#70788A</color>
+
+    <!-- Standard Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

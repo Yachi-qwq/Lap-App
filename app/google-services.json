@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "934794422054",
+    "project_id": "lapap-c445d",
+    "storage_bucket": "lapap-c445d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934794422054:android:a41e4377ff0394477f83e7",
+        "android_client_info": {
+          "package_name": "com.danielhuettel.lapapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934794422054-gu0ifm3c8c9apcbrnijrghd3b6hsljfg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.danielhuettel.lapapp",
+            "certificate_hash": "b290d3dd98be58265c5f7c04905a9ba08605629c"
+          }
+        },
+        {
+          "client_id": "934794422054-q6cm0g88i8lopuejtf5r51n3dq20fhdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAovIEEFWH73GfJah9qCdYNsp2ACRY_nBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934794422054-2kk788p9pujtan6mtcsgcl71lr9jibh2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
