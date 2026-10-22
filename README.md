@@ -5,7 +5,19 @@
 ![Material Design](https://img.shields.io/badge/Material%20Design-3-757575.svg?style=for-the-badge&logo=materialdesign&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
 
-Eine moderne, elegante Android-App zur Vorbereitung auf die **Lehrabschlussprüfung (LAP)** im Bereich Elektrotechnik. Die App bietet strukturiertes Lernen nach Kapiteln, Echtzeit-Statistiken, ein dynamisches Bewertungssystem und ein dunkles Glassmorphism-Design.
+Eine moderne, elegante Android-App zur gezielten Vorbereitung auf die **Lehrabschlussprüfung (LAP) für Anlagen- und Betriebstechniker in Österreich**. Die App bietet strukturiertes Lernen nach Prüfungs-Kapiteln, Echtzeit-Statistiken, ein dynamisches Bewertungssystem und ein dunkles Glassmorphism-Design.
+
+> ℹ️ **Hinweis zur Plattform:** Diese App ist vorerst **ausschließlich für Android-Smartphones und -Tablets** verfügbar.
+
+---
+
+## 📥 APK Download (Direkt-Installation)
+
+Du kannst die fertige App direkt als APK-Datei auf dein Android-Smartphone herunterladen und installieren:
+
+- 🟢 **[Download LapApp Latest Release (APK)](https://github.com/DEIN_BENUTZERNAME/lapApp/releases/latest)**
+
+*Hinweis zur Installation:* Auf Android-Geräten muss bei der ersten Installation aus einer APK-Datei eventuell die Option *"Installation aus unbekannten Quellen zulassen"* in den Einstellungen aktiviert werden.
 
 ---
 
@@ -32,13 +44,13 @@ Eine moderne, elegante Android-App zur Vorbereitung auf die **Lehrabschlussprüf
 ## ✨ Hauptfunktionen
 
 ### 📖 1. Fragen lesen & Durchsuchen
-- Durchstöbere alle prüfungsrelevanten Fragen übersichtlich sortiert.
+- Durchstöbere alle prüfungsrelevanten Fragen für die LAP Anlagen- und Betriebstechnik in Österreich.
 - Live-Suchfunktion nach **Frage-ID** oder **Textinhalten**.
 - Farbliche Hervorhebung von gelernten und nicht-gelernten Fragen.
 
 ### 🎯 2. Üben & Lernmodus
 - Gehe Fragen Schritt für Schritt kapitelweise durch (Kapitel A bis F).
-- Inklusive Schaltplänen, Diagrammen und Bauteilabbildungen.
+- Inklusive Schaltplänen, Diagrammen und Bauteilabbildungen aus der österreichischen Prüfungspraxis.
 - Selbstbewertungssystem per Schalter:
   - 🔴 **Schlecht**: Frage erneut wiederholen.
   - 🟡 **Mittel**: Unsicherheiten vorhanden.
@@ -46,7 +58,7 @@ Eine moderne, elegante Android-App zur Vorbereitung auf die **Lehrabschlussprüf
 
 ### 🎲 3. LAP Prüfungsmodus
 - Zufallsgenerierte Fragen aus allen Kapiteln oder gezielt aus einem ausgewählten Kapitel.
-- Simulation unter realen Prüfungsbedingungen.
+- Simulation unter realen LAP-Prüfungsbedingungen.
 
 ### 📊 4. Detaillierte Statistik & Drill-Down
 - **Gesamtforschrittsanzeige** mit zirkulärem Fortschrittsbalken.
@@ -64,6 +76,7 @@ Eine moderne, elegante Android-App zur Vorbereitung auf die **Lehrabschlussprüf
 
 | Komponente | Technologie / Bibliothek |
 | :--- | :--- |
+| **Plattform** | **Nur Android** (Android 11 bis Android 15) |
 | **Programmiersprache** | Kotlin |
 | **Min. SDK / Target SDK** | Android 11 (API 30) / Android 15 (API 36) |
 | **UI Design System** | Material Design 3 (Glassmorphism, CardViews, Night Theme) |
@@ -108,24 +121,28 @@ lapApp/
 
 ## ⚙️ Technische Erklärung des Projekts
 
-### 🏛️ 1. Architektur & Navigation
+### 🏛️ 1. Zweck, Zielgruppe & Plattform
+- **Zielgruppe**: Auszubildende und Prüfungskandidaten für die **Lehrabschlussprüfung (LAP) als Anlagen- und Betriebstechniker in Österreich**.
+- **Plattform**: Die App wurde nativ für **Android** entwickelt (unterstützt Android 11 API 30 bis Android 15 API 36). Eine iOS-Version existiert vorerst nicht.
+
+### 🏛️ 2. Architektur & Navigation
 - **BaseActivity**: Vererbungshierarchie für alle Aktivitäten der App, um systemweit ein konsistentes Dark-Theme (`AppCompatDelegate.MODE_NIGHT_YES`) durchzusetzen.
 - **MainActivity**: Dient als Hauptzentrale mit modernem Material3 Grid-Layout und steuert den Aufruf der verschiedenen Lernmodi (`READ`, `LEARN`, `LAP_ALL`, `LAP_CHAPTER`).
 - **ChapterActivity**: Übergibt über Intent-Extras (`MODE`, `CHAPTER`) den gewählten Modus und steuert die Navigation zur passenden Ansicht.
 - **QuizActivity**: Herzstück des Lernsystems. Unterstützt verschiedene Modi (Üben, Zufallsprüfung, Drill-Down) und verwaltet den Zustand der Fragen (Aufklappen von Antworten, Navigation vor/zurück, Speichern des Lernstatus).
 - **StatisticsActivity**: Berechnet dynamisch die Statistiken pro Kapitel aus den gespeicherten Daten und ermöglicht per Klick auf die Farb-Segmente den gezielten Start des Drill-Downs.
 
-### 📦 2. Datenhaltung & JSON-Parsing
-- **Fragensammlung**: Alle Fragen sind als JSON in `app/src/main/assets/fragen.json` hinterlegt.
+### 📦 3. Datenhaltung & JSON-Parsing
+- **Fragensammlung**: Alle Fragen zur LAP Anlagen- und Betriebstechnik sind als JSON in `app/src/main/assets/fragen.json` hinterlegt.
 - **Deserialisierung**: Das Laden erfolgt asynchron mittels **Google Gson** über `TypeToken<List<Question>>`.
 - **Dynamische Ressourcen**: Abbildungen (Schaltpläne, Bauteile) werden zur Laufzeit basierend auf der Frage-ID dynamisch über `resources.getIdentifier(imageName, "drawable", packageName)` geladen.
 
-### 🔄 3. Adapter & UI-Rendern
+### 🔄 4. Adapter & UI-Rendern
 - **QuestionAdapter**: Wird in der `DetailActivity` eingesetzt. Implementiert eine Live-Suche (`filter()`), die Fragen anhand ihrer ID oder des Textes filtert.
 - **LapQuestionAdapter**: Spezialisierter Adapter für die `QuizActivity`. Unterstützt Ein-/Ausblenden der Antworten, Inline-Bewertungsschaltflächen und haptisches Feedback (`performHapticFeedback()`).
 - **Status-Hervorhebung**: Der Bearbeitungsstatus einer Frage (Rot = 1, Gelb = 2, Grün = 3) verändert dynamisch die Rahmenfarbe und Strichstärke der `MaterialCardView`.
 
-### 🔔 4. Hintergrundverarbeitung & Benachrichtigungen
+### 🔔 5. Hintergrundverarbeitung & Benachrichtigungen
 - **NotificationScheduler**: Kapselt die Steuerung des Android `AlarmManager`. Plant tägliche RTC-WAKEUP Alarme für die festgelegte Uhrzeit.
 - **AlarmReceiver**: Erzeugt bei Auslösung des Alarms einen Benachrichtigungskanal (`NotificationChannel`) für Android 8.0+ und zeigt die lokale Push-Benachrichtigung an.
 - **BootReceiver**: Empfängt das `ACTION_BOOT_COMPLETED`-Signal des Systems und stellt nach einem Neustart des Smartphones automatisch alle Alarme und Backup-Tasks wieder her.
@@ -133,7 +150,7 @@ lapApp/
 
 ---
 
-## 🚀 Installation & Setup
+## 🚀 Installation & Quellcode bauen
 
 1. **Repository klonen**:
    ```bash
@@ -148,6 +165,3 @@ lapApp/
 ---
 
 
-## 📄 Lizenz
-
-Dieses Projekt steht unter der **MIT-Lizenz**. Details findest du in der `LICENSE` Datei.
