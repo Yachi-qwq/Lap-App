@@ -76,3 +76,78 @@ Eine moderne, elegante Android-App zur Vorbereitung auf die **Lehrabschlussprüf
 ---
 
 ## 📁 Projektstruktur
+
+```text
+lapApp/
+├── app/
+│   ├── src/main/
+│   │   ├── assets/
+│   │   │   └── fragen.json               # Prüfungsfragen & Antworten im JSON-Format
+│   │   ├── java/com/danielhuettel/lapapp/
+│   │   │   ├── MainActivity.kt           # Hauptmenü & Navigation
+│   │   │   ├── BaseActivity.kt           # Basis-Klasse für einheitliches Dark-Theme
+│   │   │   ├── ChapterActivity.kt        # Auswahl der Prüfungskapitel (A–F)
+│   │   │   ├── QuizActivity.kt           # Interaktiver Lern- & Prüfungsmodus
+│   │   │   ├── DetailActivity.kt         # Lese-Modus mit Live-Suchfunktion
+│   │   │   ├── StatisticsActivity.kt     # Auswertung & Kapitel-Drill-Down
+│   │   │   ├── SettingsActivity.kt       # Einstellungen & Benachrichtigungen
+│   │   │   ├── NotificationScheduler.kt  # Helper zur Einplanung von Alarmen
+│   │   │   ├── AlarmReceiver.kt          # BroadcastReceiver für Push-Notifications
+│   │   │   ├── BootReceiver.kt           # Autostart-Receiver nach Geräte-Neustart
+│   │   │   ├── BackupWorker.kt           # WorkManager-Task für tägliches Fortschritts-Backup
+│   │   │   ├── Question.kt               # Datenmodell für Prüfungsfragen
+│   │   │   ├── QuestionAdapter.kt        # Adapter für Fragenlisten-Darstellung
+│   │   │   └── LapQuestionAdapter.kt     # Adapter für interaktiven Quiz-Modus
+│   │   └── res/                          # Layout-XMLs, Drawables, Styles & Vector-Icons
+├── screenshots/                          # Screenshots für die Repository-Dokumentation
+├── build.gradle.kts                      # Root Gradle Configuration
+└── README.md                             # Projektdokumentation
+```
+
+---
+
+## ⚙️ Technische Erklärung des Projekts
+
+### 🏛️ 1. Architektur & Navigation
+- **BaseActivity**: Vererbungshierarchie für alle Aktivitäten der App, um systemweit ein konsistentes Dark-Theme (`AppCompatDelegate.MODE_NIGHT_YES`) durchzusetzen.
+- **MainActivity**: Dient als Hauptzentrale mit modernem Material3 Grid-Layout und steuert den Aufruf der verschiedenen Lernmodi (`READ`, `LEARN`, `LAP_ALL`, `LAP_CHAPTER`).
+- **ChapterActivity**: Übergibt über Intent-Extras (`MODE`, `CHAPTER`) den gewählten Modus und steuert die Navigation zur passenden Ansicht.
+- **QuizActivity**: Herzstück des Lernsystems. Unterstützt verschiedene Modi (Üben, Zufallsprüfung, Drill-Down) und verwaltet den Zustand der Fragen (Aufklappen von Antworten, Navigation vor/zurück, Speichern des Lernstatus).
+- **StatisticsActivity**: Berechnet dynamisch die Statistiken pro Kapitel aus den gespeicherten Daten und ermöglicht per Klick auf die Farb-Segmente den gezielten Start des Drill-Downs.
+
+### 📦 2. Datenhaltung & JSON-Parsing
+- **Fragensammlung**: Alle Fragen sind als JSON in `app/src/main/assets/fragen.json` hinterlegt.
+- **Deserialisierung**: Das Laden erfolgt asynchron mittels **Google Gson** über `TypeToken<List<Question>>`.
+- **Dynamische Ressourcen**: Abbildungen (Schaltpläne, Bauteile) werden zur Laufzeit basierend auf der Frage-ID dynamisch über `resources.getIdentifier(imageName, "drawable", packageName)` geladen.
+
+### 🔄 3. Adapter & UI-Rendern
+- **QuestionAdapter**: Wird in der `DetailActivity` eingesetzt. Implementiert eine Live-Suche (`filter()`), die Fragen anhand ihrer ID oder des Textes filtert.
+- **LapQuestionAdapter**: Spezialisierter Adapter für die `QuizActivity`. Unterstützt Ein-/Ausblenden der Antworten, Inline-Bewertungsschaltflächen und haptisches Feedback (`performHapticFeedback()`).
+- **Status-Hervorhebung**: Der Bearbeitungsstatus einer Frage (Rot = 1, Gelb = 2, Grün = 3) verändert dynamisch die Rahmenfarbe und Strichstärke der `MaterialCardView`.
+
+### 🔔 4. Hintergrundverarbeitung & Benachrichtigungen
+- **NotificationScheduler**: Kapselt die Steuerung des Android `AlarmManager`. Plant tägliche RTC-WAKEUP Alarme für die festgelegte Uhrzeit.
+- **AlarmReceiver**: Erzeugt bei Auslösung des Alarms einen Benachrichtigungskanal (`NotificationChannel`) für Android 8.0+ und zeigt die lokale Push-Benachrichtigung an.
+- **BootReceiver**: Empfängt das `ACTION_BOOT_COMPLETED`-Signal des Systems und stellt nach einem Neustart des Smartphones automatisch alle Alarme und Backup-Tasks wieder her.
+- **BackupWorker**: Verwendet AndroidX `WorkManager`, um einmal alle 24 Stunden im Hintergrund ein Backup des Lernfortschritts als JSON-Datei im internen App-Speicher abzulegen.
+
+---
+
+## 🚀 Installation & Setup
+
+1. **Repository klonen**:
+   ```bash
+   git clone https://github.com/DEIN_BENUTZERNAME/lapApp.git
+   ```
+2. **In Android Studio öffnen**:
+   - Öffne Android Studio -> *File* -> *Open* -> Wähle den Ordner `lapApp`.
+3. **Projekt bauen & ausführen**:
+   - Schließe ein Android-Gerät an oder starte einen Emulator (Android 11 / API 30+).
+   - Klicke auf **Run `app`** (`Shift + F10`).
+
+---
+
+
+## 📄 Lizenz
+
+Dieses Projekt steht unter der **MIT-Lizenz**. Details findest du in der `LICENSE` Datei.
