@@ -1,4 +1,4 @@
-package com.danielhuettel.lapapp
+package com.yachihitoka.lapapp
 
 import android.content.Context
 import androidx.work.Worker

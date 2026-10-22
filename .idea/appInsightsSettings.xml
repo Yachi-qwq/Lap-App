@@ -8,7 +8,7 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.danielhuettel.lapapp" />
+                  <option name="appId" value="com.yachihitoka.lapapp" />
                   <option name="mobileSdkAppId" value="1:934794422054:android:a41e4377ff0394477f83e7" />
                   <option name="projectId" value="lapap-c445d" />
                   <option name="projectNumber" value="934794422054" />

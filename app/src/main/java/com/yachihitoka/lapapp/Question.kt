@@ -1,4 +1,4 @@
-package com.danielhuettel.lapapp
+package com.yachihitoka.lapapp
 
 import com.google.gson.annotations.SerializedName
 

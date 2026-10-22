@@ -96,7 +96,7 @@ lapApp/
 │   ├── src/main/
 │   │   ├── assets/
 │   │   │   └── fragen.json               # Prüfungsfragen & Antworten im JSON-Format
-│   │   ├── java/com/danielhuettel/lapapp/
+│   │   ├── java/com/yachihitoka/lapapp/
 │   │   │   ├── MainActivity.kt           # Hauptmenü & Navigation
 │   │   │   ├── BaseActivity.kt           # Basis-Klasse für einheitliches Dark-Theme
 │   │   │   ├── ChapterActivity.kt        # Auswahl der Prüfungskapitel (A–F)

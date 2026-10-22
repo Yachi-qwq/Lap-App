@@ -1,4 +1,4 @@
-package com.danielhuettel.lapapp
+package com.yachihitoka.lapapp
 
 import androidx.credentials.CustomCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential

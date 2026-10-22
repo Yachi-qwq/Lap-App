@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.danielhuettel.lapapp"
+    namespace = "com.yachihitoka.lapapp"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.danielhuettel.lapapp"
+        applicationId = "com.yachihitoka.lapapp"
         minSdk = 30
         targetSdk = 36
         versionCode = 1

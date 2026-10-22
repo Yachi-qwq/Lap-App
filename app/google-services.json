@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:934794422054:android:a41e4377ff0394477f83e7",
         "android_client_info": {
-          "package_name": "com.danielhuettel.lapapp"
+          "package_name": "com.yachihitoka.lapapp"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "934794422054-gu0ifm3c8c9apcbrnijrghd3b6hsljfg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.danielhuettel.lapapp",
+            "package_name": "com.yachihitoka.lapapp",
             "certificate_hash": "b290d3dd98be58265c5f7c04905a9ba08605629c"
           }
         },

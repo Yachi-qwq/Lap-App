@@ -1,4 +1,4 @@
-package com.danielhuettel.lapapp
+package com.yachihitoka.lapapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
