@@ -16,7 +16,6 @@ Eine moderne, elegante Android-App zur gezielten Vorbereitung auf die **Lehrabsc
 Du kannst die fertige App direkt herunterladen und auf deinem Android-Smartphone installieren:
 
 - 🟢 **[Download LapApp.apk (Direkt-Download)](https://github.com/Yachi-qwq/Lap-App/raw/main/releases/LapApp.apk)**
-- 📦 **[GitHub Releases Seite](https://github.com/Yachi-qwq/Lap-App/releases)**
 
 *Hinweis zur Installation:* Auf Android-Geräten muss bei der ersten Installation aus einer APK-Datei eventuell die Option *"Installation aus unbekannten Quellen zulassen"* in den Einstellungen aktiviert werden.
 
